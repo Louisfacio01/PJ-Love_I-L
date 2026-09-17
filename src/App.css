@@ -1,0 +1,652 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;700&display=swap');
+
+/* ==========================================
+   ESTILOS GERAIS DA PÁGINA
+   ========================================== */
+body {
+  margin: 0;
+  overflow-x: hidden;
+  background-color: #ffeef2;
+  font-family: 'Quicksand', sans-serif;
+}
+
+.sessao1 {
+  max-height: 10000px;
+  max-width: 100%;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Quicksand', sans-serif;
+  position: relative;
+  z-index: 1;
+}
+
+.pagina-limpa {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  width: 100%;
+  position: relative;
+  z-index: 1;
+  color: #fa4f74;
+  text-align: center;
+  padding: 20px 0;
+  box-sizing: border-box;
+}
+
+/* ==========================================
+   ANIMAÇÃO DA CHUVA DE BACKGROUND
+   ========================================== */
+.chuva-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.bichinho-caindo {
+  position: absolute;
+  top: -100px;
+  opacity: 0.7;
+  user-select: none;
+  animation: queda linear infinite;
+}
+
+.bichinho-caindo img {
+  width: 40px;
+  height: auto;
+}
+
+.bichinho-caindo span {
+  font-size: 30px;
+}
+
+@keyframes queda {
+  0% {
+    transform: translateY(0);
+    opacity: 0;
+  }
+  20% {
+    opacity: 0.5;
+  }
+  90% {
+    opacity: 0.5;
+  }
+  100% {
+    transform: translateY(110vh) rotate(380deg);
+    opacity: 0;
+  }
+}
+
+/* ==========================================
+   ELEMENTOS DE INTERAÇÃO E IMAGENS
+   ========================================== */
+.imgSapinho,
+.imgOncinha {
+  height: 230px;
+  width: 420px;
+}
+
+.setinha-animada {
+  width: 5px;
+  height: 2px;
+  animation: VaieVem 1s ease-in-out infinite alternate;
+  user-select: none;
+  margin: 0 auto 35px auto;
+  color: #fa4f74;
+}
+
+@keyframes VaieVem {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(4px); }
+}
+
+.cartao_prox {
+  position: fixed;
+  height: 400px;
+  width: 650px;
+  left: 350px;
+  top: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #ffb3c6;
+  margin: 0 auto;
+  box-shadow: 4px 4px 8px #f7547d;
+  border-radius: 10px;
+  z-index: 10;
+  animation: balaoUp 1s ease-in alternate;
+  transform: translateY(0);
+}
+
+@keyframes balaoUp {
+  0% {
+    opacity: 0;
+    transform: translateY(-100px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.conteudo-cartao {
+  padding: 30px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.titulo-presente {
+  font-family: 'Quicksand', sans-serif;
+  font-weight: 700;
+  color: #ffffff;
+  font-size: 32px;
+  margin: 0;
+  text-shadow: 2px 2px 4px rgba(247, 84, 125, 0.4);
+}
+
+.texto-presente {
+  font-family: 'Quicksand', sans-serif;
+  color: #fff0f3;
+  font-size: 18px;
+  line-height: 1.6;
+  margin: 0;
+  font-weight: 500;
+}
+
+/* ==========================================
+   BOTÕES GERAIS
+   ========================================== */
+.btn-abrir-presentes {
+  font-family: 'Quicksand', sans-serif;
+  font-weight: 700;
+  background-color: #ffffff;
+  color: #ff6486;
+  border: none;
+  padding: 12px 28px;
+  font-size: 16px;
+  border-radius: 20px;
+  cursor: pointer;
+  box-shadow: 0px 4px 15px rgba(247, 84, 125, 0.3);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.btn-abrir-presentes:hover {
+  transform: scale(1.05);
+  box-shadow: 0px 6px 20px rgba(247, 84, 125, 0.5);
+}
+
+.btn-enviar-beijinhos {
+  font-family: 'Quicksand', sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+  width: 200px;
+  height: 80px;
+  border-radius: 20px;
+  box-shadow: 4px 4px 6px #f7547d;
+  background-color: #fff;
+  color: #ff6486;
+  cursor: pointer;
+  border-color: #fa4f74;
+  border-width: 1.5px;
+}
+
+.btn-reset {
+  font-family: 'Quicksand', sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+  width: 100px;
+  height: 35px;
+  border-width: 1.5px;
+  border-style: solid;
+  border-radius: 5px;
+  border-color: #fa4f74;
+  background-color: #ff6486;
+  color: #fff;
+  cursor: pointer;
+  margin-top: 20px;
+}
+
+.container-presentes {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  margin-top: 30px;
+}
+
+.caixa-presente {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  background-color: #fa4f74;
+  padding: 20px;
+  border-radius: 10px;
+  border: 2px solid #fa4f74;
+  color: #fff;
+}
+
+.caixa-presente:hover {
+  transform: translateY(-8px);
+}
+
+.nome-presente {
+  font-weight: 700;
+  font-size: 18px;
+}
+
+/* ==========================================
+   CONTAINER UNIFICADO DOS PRESENTES (Card Rosa)
+   ========================================== */
+.wrapper-presente {
+  width: 100%;
+  max-width: 500px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 10;
+  animation: balon-in 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.conteudo-presente {
+  background-color: #ffb3c6 !important;
+  padding: 25px !important;
+  border-radius: 20px !important;
+  width: 100% !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  box-shadow: 0px 8px 20px rgba(247, 84, 125, 0.3) !important;
+  box-sizing: border-box !important;
+}
+
+.conteudo-presente h2 {
+  color: #d81b60;
+  font-size: 1.5rem;
+  margin: 0 0 10px 0;
+}
+
+.conteudo-presente p {
+  color: #4a4a4a;
+  font-weight: 500;
+}
+
+@keyframes balon-in {
+  0% { transform: scale(0.3); opacity: 0; }
+  60% { transform: scale(1.05); opacity: 1; }
+  80% { transform: scale(0.95); }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+/* ==========================================
+   BOTÕES NAVEGAÇÃO DOS PRESENTES (Fora do Card Rosa)
+   ========================================== */
+.botoes-presentes {
+  display: flex !important;
+  justify-content: space-between !important;
+  width: 100% !important;
+  margin-top: 15px !important;
+  gap: 15px !important;
+}
+
+.btn-gifts-next, 
+.btn-gifts-back, 
+.btn-gifts-back-in, 
+.btn-gifts-next-in {
+  flex: 1 !important;
+  display: inline-block !important;
+  font-family: 'Quicksand', sans-serif !important;
+  font-weight: 700 !important;
+  font-size: 16px !important;
+  height: 45px !important;
+  border-radius: 25px !important;
+  box-shadow: 0px 4px 10px rgba(247, 84, 125, 0.25) !important;
+  background-color: #ffffff !important;
+  color: #ff6486 !important;
+  cursor: pointer !important;
+  border: 1.5px solid #fa4f74 !important;
+  transition: transform 0.2s, box-shadow 0.2s !important;
+}
+
+.btn-gifts-next:hover, 
+.btn-gifts-back:hover, 
+.btn-gifts-back-in:hover, 
+.btn-gifts-next-in:hover {
+  transform: translateY(-2px) !important;
+  box-shadow: 0px 6px 14px rgba(247, 84, 125, 0.35) !important;
+}
+
+.btn-opcao {
+  background-color: #ffffff;
+  color: #d81b60;
+  border: 2px solid #f8bbd0;
+  padding: 10px 15px;
+  border-radius: 12px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-opcao:hover {
+  background-color: #f8bbd0;
+  transform: scale(1.02);
+}
+
+/* ==========================================
+   PAPEL DA CARTA (FOLHA BRANCA)
+   ========================================== */
+.papel-carta {
+  position: relative !important;
+  background-color: #ffffff !important;
+  padding: 25px 20px !important;
+  border-radius: 16px !important;
+  margin: 10px auto !important;
+  width: 100% !important;
+  max-height: 280px !important;
+  box-sizing: border-box !important;
+  text-align: left !important;
+  box-shadow: 0px 6px 18px rgba(0, 0, 0, 0.08) !important;
+  overflow-y: auto !important;
+  overflow-x: hidden !important;
+  word-wrap: break-word !important;
+  overflow-wrap: break-word !important;
+  scrollbar-width: thin;
+  scrollbar-color: #f8bbd0 transparent;
+}
+
+.papel-carta::-webkit-scrollbar {
+  width: 6px;
+}
+.papel-carta::-webkit-scrollbar-track {
+  background: transparent;
+}
+.papel-carta::-webkit-scrollbar-thumb {
+  background-color: #f8bbd0;
+  border-radius: 10px;
+}
+.papel-carta::-webkit-scrollbar-thumb:hover {
+  background-color: #fa4f74;
+}
+
+.carta-titulo {
+  margin: 0 0 10px 0 !important;
+  font-weight: bold !important;
+  color: #d81b60 !important;
+  font-size: 1.2rem !important;
+}
+
+.carta-texto {
+  font-size: 0.95rem !important;
+  line-height: 1.6 !important;
+  color: #4a4a4a !important;
+  margin: 0 !important;
+}
+
+/* ==========================================
+   STICKERS NOS CANTOS DA FOLHA BRANCA
+   ========================================== */
+.sticker {
+  position: absolute !important;
+  user-select: none !important;
+  pointer-events: none !important;
+  z-index: 5 !important;
+  width: 32px !important;
+  height: 32px !important;
+  object-fit: contain !important;
+}
+
+.sticker-top-left { top: -8px !important; left: -8px !important; transform: rotate(-12deg) !important; }
+.sticker-top-right { top: -8px !important; right: -8px !important; transform: rotate(12deg) !important; }
+.sticker-bottom-left { bottom: -8px !important; left: -8px !important; transform: rotate(-10deg) !important; }
+.sticker-bottom-right { bottom: -8px !important; right: -8px !important; transform: rotate(15deg) !important; }
+
+
+
+
+
+
+
+
+
+
+/* ==========================================
+   RESPONSIVIDADE PARA CELULAR
+   ========================================== */
+
+@media (max-width: 768px) {
+
+  body {
+    overflow-x: hidden;
+  }
+
+  /* Página inicial */
+  .pagina-limpa {
+    min-height: 100vh;
+    padding: 15px;
+    box-sizing: border-box;
+  }
+
+  .imgSapinho,
+  .imgOncinha {
+    width: 90%;
+    max-width: 350px;
+    height: auto;
+    object-fit: contain;
+  }
+
+  /* Botão de beijinhos */
+  .btn-enviar-beijinhos {
+    width: min(85%, 300px);
+    height: 65px;
+    font-size: 14px;
+    padding: 10px;
+  }
+
+  /* ==========================================
+     CARTÃO "PARABÉNS"
+     ========================================== */
+
+  .cartao_prox {
+    position: fixed;
+    width: calc(100vw - 30px);
+    max-width: none;
+    height: auto;
+    min-height: 360px;
+    left: 15px;
+    top: 20px;
+    box-sizing: border-box;
+    padding: 15px;
+  }
+
+  .conteudo-cartao {
+    padding: 20px 10px;
+    gap: 15px;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .titulo-presente {
+    font-size: 25px;
+    line-height: 1.2;
+  }
+
+  .texto-presente {
+    font-size: 16px;
+    line-height: 1.5;
+  }
+
+  .btn-abrir-presentes {
+    width: 100%;
+    max-width: 260px;
+    padding: 12px 15px;
+    font-size: 15px;
+  }
+
+  /* ==========================================
+     PÁGINA DOS PRESENTES
+     ========================================== */
+
+  .container-presentes {
+    width: 100%;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 20px;
+    padding: 0 15px;
+    box-sizing: border-box;
+  }
+
+  .caixa-presente {
+    width: 100%;
+    max-width: 300px;
+    box-sizing: border-box;
+    padding: 16px;
+  }
+
+  /* ==========================================
+     CARDS DOS PRESENTES
+     ========================================== */
+
+  .wrapper-presente {
+    width: calc(100% - 30px);
+    max-width: 500px;
+    box-sizing: border-box;
+  }
+
+  .conteudo-presente {
+    width: 100% !important;
+    padding: 18px !important;
+    box-sizing: border-box !important;
+  }
+
+  .conteudo-presente h2 {
+    font-size: 1.3rem;
+    text-align: center;
+  }
+
+  .conteudo-presente p {
+    font-size: 0.9rem;
+  }
+
+  /* ==========================================
+     FOTOS
+     ========================================== */
+
+  .conteudo-presente img {
+    max-width: 100%;
+  }
+
+  /* ==========================================
+     PAPEL DA CARTA
+     ========================================== */
+
+  .papel-carta {
+    width: 100% !important;
+    max-height: 300px !important;
+    padding: 25px 18px !important;
+    box-sizing: border-box !important;
+  }
+
+  .carta-titulo {
+    font-size: 1.1rem !important;
+  }
+
+  .carta-texto {
+    font-size: 0.9rem !important;
+    line-height: 1.5 !important;
+  }
+
+  /* ==========================================
+     BOTÕES ANTERIOR / PRÓXIMO
+     ========================================== */
+
+  .botoes-presentes {
+    width: 100% !important;
+    gap: 10px !important;
+  }
+
+  .btn-gifts-next,
+  .btn-gifts-back,
+  .btn-gifts-back-in,
+  .btn-gifts-next-in {
+    font-size: 14px !important;
+    height: 42px !important;
+    padding: 0 8px !important;
+  }
+
+  /* ==========================================
+     OPÇÕES DO VALE-ENCONTRO
+     ========================================== */
+
+  .btn-opcao {
+    width: 100%;
+    font-size: 14px;
+    padding: 10px;
+    box-sizing: border-box;
+  }
+
+  .btn-whatsapp {
+    max-width: 100%;
+    box-sizing: border-box;
+    font-size: 13px !important;
+  }
+
+  /* ==========================================
+     STICKERS
+     ========================================== */
+
+  .sticker {
+    width: 28px !important;
+    height: 28px !important;
+  }
+
+  /* RESET */
+  .btn-reset {
+    margin-top: 15px;
+  }
+}
+
+
+/* Celulares pequenos */
+@media (max-width: 400px) {
+
+  .cartao_prox {
+    width: calc(100vw - 20px);
+    left: 10px;
+    top: 10px;
+    min-height: 350px;
+  }
+
+  .titulo-presente {
+    font-size: 22px;
+  }
+
+  .texto-presente {
+    font-size: 14px;
+  }
+
+  .conteudo-cartao {
+    padding: 15px 5px;
+  }
+
+  .wrapper-presente {
+    width: calc(100% - 20px);
+  }
+
+  .conteudo-presente {
+    padding: 15px !important;
+  }
+
+  .papel-carta {
+    max-height: 280px !important;
+    padding: 22px 15px !important;
+  }
+}
