@@ -45,8 +45,9 @@ function App() {
   }
 
   const lidarComClique = () => {
-    const novoValor = beijinhos + 1
-    setBeijinhos(novoValor)
+    if (beijinhos < 13) {
+      setBeijinhos(beijinhos + 1)
+    }
   }
 
   const itensCaindo = [
@@ -177,15 +178,15 @@ function App() {
 
                   <p className="carta-titulo">Meu Amor,</p>
                   <p className="carta-texto">
-                    Olha amor, eu preparei essa cartinha para você, estava sem ideias do que escrever, mas queria te fazer sorrir e te deixar feliz.
+                    Olha amor, eu preparei essa cartinha para você, estava sem ideias do que escrever, mas queria te fazer sorrir e tentar te deixar feliz kkkkk.
                     Só queria de te dizer que eu te amo muito, e não tenho vergonha de falar para você o que eu sinto, mesmo tendo ""POUCO"" tempo que
-                    estou tendo algo com você, me lembro de quando te vi pela primeira vez na sala, fiquei um pouco com medo pela sua carinha de brava
+                    estou com voce, me lembro de quando te vi pela primeira vez na sala, fiquei um pouco com medo pela sua carinha de brava
                     (dizendo você "concentrada🙄" kkkk,)mas eu ja tinha gostado de você ali mesmo, você meu amor tem algo muito especial,
                     e eu sinto que é algo único, você me fazer sentir um garoto mais feliz do mundo até mesmo naquele
-                    silencio que as vezes fica entre a gente, queroa q saiba que eu te amo muito, e que você pode contar comigo sempre
+                    silencio que as vezes fica entre a gente, quero q saiba que eu te amo muito, e quero sempre estar ao seu lado amor da minha vida.
                   </p>
                   <p style={{ marginTop: '10px', fontStyle: 'italic', color: '#d81b60', fontWeight: 'bold' }}>
-                    com muito carinho, seu amor(sapinho)
+                    Com muito carinho, seu amor sapinho ;)
                   </p>
                 </div>
               </div>
@@ -258,7 +259,7 @@ function App() {
                   <p style={{ fontSize: '0.85rem', marginBottom: '5px' }}><strong>Ou digite sua ideia:</strong></p>
                   <input 
                     type="text"
-                    placeholder="Ex: Ir ao parque no sábado..."
+                    placeholder="Ex: Ir ao parque ... 00/00/0000"
                     value={opcaoPersonalizada}
                     onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
                       setOpcaoPersonalizada(e.target.value)
@@ -386,9 +387,11 @@ function App() {
             </div>
           )}
 
-          <button className="btn-enviar-beijinhos" onClick={lidarComClique}>
-            Envie seu numero da sorte em beijinhos continuar {beijinhos}
-          </button>
+          <h3 style={{display:'flex', flexDirection: 'column'}}>
+            Envie seu numero da sorte em beijinhos continuar
+          <button className="btn-enviar-beijinhos" onClick={lidarComClique}>Beijinhos aqui {beijinhos}😘</button>
+          </h3>
+
 
           <img src={oncinhaLove} alt="Oncinha Principal" className="imgOncinha" />
         </div>
